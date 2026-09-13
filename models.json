@@ -1,0 +1,810 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "2026-09",
+    "total_models": 25,
+    "categories": ["frontier", "cheap", "coding", "open_weight", "multimodal"],
+    "notes": "Pricing in USD per 1M tokens. Benchmarks are latest available as of September 2026."
+  },
+  "models": {
+    "frontier": [
+      {
+        "id": "claude-fable-5",
+        "name": "Claude Fable 5",
+        "provider": "Anthropic",
+        "category": "frontier",
+        "tags": ["frontier", "coding", "agentic", "reasoning", "long-context"],
+        "description": "Anthropic's highest-capability model. Top-tier on SWE-bench Verified and complex multi-file coding. Built for agentic workflows with 1M token context.",
+        "context_window": 1000000,
+        "pricing": {
+          "input_per_1m": 15.00,
+          "output_per_1m": 50.00,
+          "currency": "USD",
+          "notes": "Standard API pricing"
+        },
+        "benchmarks": {
+          "swe_bench_verified": "95.0%",
+          "gpqa_diamond": null,
+          "humaneval": null,
+          "mmlu": null
+        },
+        "strengths": ["top coding capability", "multi-file reasoning", "agentic tasks", "long context"],
+        "weaknesses": ["most expensive Anthropic model", "overkill for simple tasks"],
+        "availability": {
+          "api": true,
+          "api_model_string": "claude-fable-5-1",
+          "self_host": false,
+          "chat_ui": true
+        },
+        "best_for": ["complex agentic coding", "large codebase reasoning", "high-stakes tasks"],
+        "not_ideal_for": ["budget-sensitive apps", "simple Q&A", "high-volume inference"],
+        "license": "Proprietary"
+      },
+      {
+        "id": "gpt-5-5",
+        "name": "GPT-5.5",
+        "provider": "OpenAI",
+        "category": "frontier",
+        "tags": ["frontier", "agentic", "tool-calling", "reasoning", "multimodal"],
+        "description": "OpenAI's current flagship. Excels at agentic terminal work and tool-calling. Default ChatGPT model with strong real-world task performance.",
+        "context_window": 2000000,
+        "pricing": {
+          "input_per_1m": 10.00,
+          "output_per_1m": 30.00,
+          "currency": "USD",
+          "notes": "Standard API pricing"
+        },
+        "benchmarks": {
+          "swe_bench_verified": "82.6%",
+          "terminal_bench_2": "82.7%",
+          "gpqa_diamond": null,
+          "mmlu": null
+        },
+        "strengths": ["agentic terminal work", "tool use", "broad capability", "2M context"],
+        "weaknesses": ["expensive output tokens", "not the cheapest OpenAI option"],
+        "availability": {
+          "api": true,
+          "api_model_string": "gpt-5.5",
+          "self_host": false,
+          "chat_ui": true
+        },
+        "best_for": ["agentic pipelines", "tool-calling workflows", "terminal tasks", "ChatGPT Plus users"],
+        "not_ideal_for": ["budget deployments", "purely text-only tasks where cheaper options suffice"],
+        "license": "Proprietary"
+      },
+      {
+        "id": "claude-opus-5",
+        "name": "Claude Opus 5",
+        "provider": "Anthropic",
+        "category": "frontier",
+        "tags": ["frontier", "coding", "agentic", "balanced", "long-context"],
+        "description": "Anthropic's balanced mid-flagship. Half the price of Fable 5, purpose-built for agentic coding. Strong on SWE-bench Verified with 1M token context.",
+        "context_window": 1000000,
+        "pricing": {
+          "input_per_1m": 5.00,
+          "output_per_1m": 25.00,
+          "currency": "USD",
+          "notes": "Standard API pricing"
+        },
+        "benchmarks": {
+          "swe_bench_verified": "88.6%",
+          "gpqa_diamond": null,
+          "mmlu": null
+        },
+        "strengths": ["balanced capability vs cost", "agentic coding", "long context", "better value than Fable 5"],
+        "weaknesses": ["not top-of-leaderboard on all benchmarks"],
+        "availability": {
+          "api": true,
+          "api_model_string": "claude-opus-5",
+          "self_host": false,
+          "chat_ui": true
+        },
+        "best_for": ["agentic coding at scale", "production apps needing high quality", "cost-conscious frontier use"],
+        "not_ideal_for": ["absolute maximum capability tasks (use Fable 5)", "simple generation tasks"],
+        "license": "Proprietary"
+      },
+      {
+        "id": "gemini-3-1-pro",
+        "name": "Gemini 3.1 Pro",
+        "provider": "Google",
+        "category": "frontier",
+        "tags": ["frontier", "multimodal", "long-context", "reasoning"],
+        "description": "Google's frontier model and cheapest US-frontier option. Native multimodal (image, audio, video) with 1M context and leading GPQA Diamond score.",
+        "context_window": 1000000,
+        "pricing": {
+          "input_per_1m": 3.50,
+          "output_per_1m": 12.00,
+          "currency": "USD",
+          "notes": "Rate increases to $18/M output above 200K context"
+        },
+        "benchmarks": {
+          "swe_bench_verified": null,
+          "gpqa_diamond": "94.3%",
+          "mmlu": null
+        },
+        "strengths": ["cheapest US frontier", "native multimodal", "1M context", "top GPQA score"],
+        "weaknesses": ["pricing jumps above 200K context", "less community tooling than OpenAI/Anthropic"],
+        "availability": {
+          "api": true,
+          "api_model_string": "gemini-3.1-pro",
+          "self_host": false,
+          "chat_ui": true
+        },
+        "best_for": ["multimodal tasks", "long-document reasoning", "cost-efficient frontier work", "video understanding"],
+        "not_ideal_for": ["very long context on a tight budget (pricing spike)", "pure coding agent tasks"],
+        "license": "Proprietary"
+      },
+      {
+        "id": "grok-4-5",
+        "name": "Grok 4.5",
+        "provider": "xAI",
+        "category": "frontier",
+        "tags": ["frontier", "reasoning", "real-time-data", "long-context"],
+        "description": "xAI's flagship with native X (Twitter) data grounding and strong independent reasoning benchmarks. 500K context and real-time data access.",
+        "context_window": 500000,
+        "pricing": {
+          "input_per_1m": 2.00,
+          "output_per_1m": 6.00,
+          "currency": "USD",
+          "notes": "Standard API pricing"
+        },
+        "benchmarks": {
+          "gpqa_diamond": "90.1%",
+          "aa_omniscience": "78%",
+          "swe_bench_verified": null
+        },
+        "strengths": ["real-time data grounding via X", "strong reasoning", "competitive pricing for frontier", "hallucination resistance"],
+        "weaknesses": ["smaller ecosystem than OpenAI/Anthropic", "less community integrations"],
+        "availability": {
+          "api": true,
+          "api_model_string": "grok-4.5",
+          "self_host": false,
+          "chat_ui": true
+        },
+        "best_for": ["tasks needing real-time info", "hallucination-sensitive workflows", "news/social media intelligence"],
+        "not_ideal_for": ["pure coding tasks", "enterprise environments avoiding X ecosystem"],
+        "license": "Proprietary"
+      }
+    ],
+    "cheap": [
+      {
+        "id": "deepseek-v4-flash",
+        "name": "DeepSeek V4-Flash",
+        "provider": "DeepSeek",
+        "category": "cheap",
+        "tags": ["cheap", "fast", "bulk", "open-weight", "long-context"],
+        "description": "Absolute cheapest frontier-class model available. 284B MoE with 13B active params. 1M context. Ideal for high-volume, cost-sensitive workloads.",
+        "context_window": 1000000,
+        "pricing": {
+          "input_per_1m": 0.07,
+          "output_per_1m": 0.28,
+          "currency": "USD",
+          "notes": "Prices may vary by provider; check DeepSeek API and aggregators"
+        },
+        "benchmarks": {
+          "swe_bench_verified": null,
+          "mmlu": null,
+          "notes": "Frontier-class quality at budget price; no independent evals widely published"
+        },
+        "strengths": ["cheapest available", "1M context", "MIT licensed", "MoE efficiency"],
+        "weaknesses": ["less independently benchmarked", "Chinese-origin (data privacy considerations for some orgs)"],
+        "availability": {
+          "api": true,
+          "api_model_string": "deepseek-v4-flash",
+          "self_host": true,
+          "chat_ui": true
+        },
+        "best_for": ["bulk text processing", "high-volume summarization", "cost-first applications", "prototyping"],
+        "not_ideal_for": ["highest-stakes tasks", "regulated industries with data residency rules"],
+        "license": "MIT"
+      },
+      {
+        "id": "claude-sonnet-5",
+        "name": "Claude Sonnet 5",
+        "provider": "Anthropic",
+        "category": "cheap",
+        "tags": ["cheap", "balanced", "coding", "fast"],
+        "description": "Anthropic's default model for Free and Pro tiers. Excellent balance of quality and cost. Strong on coding and tool use at introductory pricing.",
+        "context_window": 200000,
+        "pricing": {
+          "input_per_1m": 2.00,
+          "output_per_1m": 10.00,
+          "currency": "USD",
+          "notes": "Introductory pricing; standard pricing $3/$15 per 1M tokens"
+        },
+        "benchmarks": {
+          "swe_bench_verified": null,
+          "mmlu": null
+        },
+        "strengths": ["great quality-to-cost ratio", "Anthropic reliability", "strong coding", "fast"],
+        "weaknesses": ["200K context (not 1M)", "will reprice higher over time"],
+        "availability": {
+          "api": true,
+          "api_model_string": "claude-sonnet-5",
+          "self_host": false,
+          "chat_ui": true
+        },
+        "best_for": ["everyday API workloads", "production apps needing reliability", "coding assistants", "chat interfaces"],
+        "not_ideal_for": ["very long document tasks (>200K)", "absolute cheapest tier"],
+        "license": "Proprietary"
+      },
+      {
+        "id": "gemini-3-6-flash",
+        "name": "Gemini 3.6 Flash",
+        "provider": "Google",
+        "category": "cheap",
+        "tags": ["cheap", "fast", "efficient", "long-context"],
+        "description": "Google's fast and cheap Flash tier. 17% more token-efficient than 3.5 Flash. 1M context at low cost, great for high-throughput pipelines.",
+        "context_window": 1000000,
+        "pricing": {
+          "input_per_1m": 0.30,
+          "output_per_1m": 7.50,
+          "currency": "USD",
+          "notes": "Approximate; check Google AI Studio for latest"
+        },
+        "benchmarks": {
+          "gpqa_diamond": null,
+          "swe_bench_verified": null
+        },
+        "strengths": ["1M context at low cost", "token efficient", "fast latency", "Google infrastructure"],
+        "weaknesses": ["not suitable for hardest reasoning tasks", "Flash-tier quality ceiling"],
+        "availability": {
+          "api": true,
+          "api_model_string": "gemini-3.6-flash",
+          "self_host": false,
+          "chat_ui": true
+        },
+        "best_for": ["high-throughput summarization", "RAG pipelines", "real-time chat", "long-doc ingestion at low cost"],
+        "not_ideal_for": ["complex reasoning", "multi-step agentic coding"],
+        "license": "Proprietary"
+      },
+      {
+        "id": "gpt-5-6-luna",
+        "name": "GPT-5.6 Luna",
+        "provider": "OpenAI",
+        "category": "cheap",
+        "tags": ["cheap", "openai", "fast", "balanced"],
+        "description": "OpenAI's budget-tier flagship after an 80% price cut in July 2026. Good OpenAI quality at dramatically lower cost than GPT-5.5.",
+        "context_window": 1000000,
+        "pricing": {
+          "input_per_1m": 0.40,
+          "output_per_1m": 1.20,
+          "currency": "USD",
+          "notes": "Post-July 2026 pricing after 80% cut"
+        },
+        "benchmarks": {
+          "swe_bench_verified": null,
+          "mmlu": null
+        },
+        "strengths": ["OpenAI ecosystem compatibility", "very cheap post price-cut", "strong tool use", "wide integrations"],
+        "weaknesses": ["lower capability than GPT-5.5 or 5.6 Sol", "newer, less community feedback"],
+        "availability": {
+          "api": true,
+          "api_model_string": "gpt-5.6-luna",
+          "self_host": false,
+          "chat_ui": true
+        },
+        "best_for": ["OpenAI ecosystem users on a budget", "high-volume inference", "chatbots", "simple tool use"],
+        "not_ideal_for": ["hardest reasoning tasks", "coding agent benchmarks"],
+        "license": "Proprietary"
+      },
+      {
+        "id": "mistral-large-3",
+        "name": "Mistral Large 3",
+        "provider": "Mistral AI",
+        "category": "cheap",
+        "tags": ["cheap", "open-weight", "european", "agentic", "apache"],
+        "description": "675B MoE model with 41B active params. Apache 2.0 licensed. Agentic-tuned, permissive license, and competitive pricing. Non-Chinese open frontier alternative.",
+        "context_window": 256000,
+        "pricing": {
+          "input_per_1m": 0.50,
+          "output_per_1m": 1.50,
+          "currency": "USD",
+          "notes": "Via Mistral API; free to self-host"
+        },
+        "benchmarks": {
+          "swe_bench_verified": null,
+          "mmlu": null,
+          "notes": "Near parity with top instruction-tuned closed models on coding benchmarks"
+        },
+        "strengths": ["Apache 2.0 (commercial use)", "European data compliance friendly", "agentic tuning", "self-hostable"],
+        "weaknesses": ["256K context (not 1M)", "smaller than Chinese MoE giants"],
+        "availability": {
+          "api": true,
+          "api_model_string": "mistral-large-3",
+          "self_host": true,
+          "chat_ui": true
+        },
+        "best_for": ["EU-compliant apps", "self-hosted agentic systems", "commercial fine-tuning", "cost-sensitive European deployments"],
+        "not_ideal_for": ["ultra-long context tasks", "tasks needing top GPQA-level reasoning"],
+        "license": "Apache 2.0"
+      }
+    ],
+    "coding": [
+      {
+        "id": "claude-fable-5-coding",
+        "name": "Claude Fable 5",
+        "provider": "Anthropic",
+        "category": "coding",
+        "tags": ["coding", "frontier", "agentic", "swe-bench-leader", "long-context"],
+        "description": "Current SWE-bench Verified leader at 95.0%. Best for complex multi-file coding, PR reviews, and long codebase reasoning. The top choice when code quality is non-negotiable.",
+        "context_window": 1000000,
+        "pricing": {
+          "input_per_1m": 15.00,
+          "output_per_1m": 50.00,
+          "currency": "USD"
+        },
+        "benchmarks": {
+          "swe_bench_verified": "95.0%",
+          "humaneval": null
+        },
+        "strengths": ["#1 SWE-bench Verified", "multi-file reasoning", "1M context for large repos", "agentic coding"],
+        "weaknesses": ["most expensive option", "overkill for simple code tasks"],
+        "availability": {
+          "api": true,
+          "api_model_string": "claude-fable-5-1",
+          "self_host": false,
+          "chat_ui": true
+        },
+        "best_for": ["production code generation", "large codebase refactors", "automated PR reviews", "complex debugging"],
+        "not_ideal_for": ["high-volume code suggestions on a budget", "simple boilerplate generation"],
+        "license": "Proprietary"
+      },
+      {
+        "id": "deepseek-v4-pro",
+        "name": "DeepSeek V4-Pro",
+        "provider": "DeepSeek",
+        "category": "coding",
+        "tags": ["coding", "cheap", "open-weight", "moe", "swe-bench"],
+        "description": "1.6T MoE model with strong SWE-bench Verified performance at a fraction of frontier prices. MIT licensed, self-hostable, excellent cost-performance for coding tasks.",
+        "context_window": 1000000,
+        "pricing": {
+          "input_per_1m": 0.27,
+          "output_per_1m": 1.10,
+          "currency": "USD",
+          "notes": "Prices vary by aggregator; check DeepSeek API"
+        },
+        "benchmarks": {
+          "swe_bench_verified": "80.6%",
+          "humaneval": null
+        },
+        "strengths": ["80.6% SWE-bench at tiny fraction of Fable 5 cost", "MIT licensed", "1M context", "self-hostable"],
+        "weaknesses": ["Chinese-origin model (data privacy consideration)", "needs large infra to self-host at 1.6T"],
+        "availability": {
+          "api": true,
+          "api_model_string": "deepseek-v4-pro",
+          "self_host": true,
+          "chat_ui": true
+        },
+        "best_for": ["budget coding agents", "open-source project automation", "code review pipelines", "self-hosted coding tools"],
+        "not_ideal_for": ["regulated enterprise environments", "tasks needing top 95% SWE-bench performance"],
+        "license": "MIT"
+      },
+      {
+        "id": "glm-5-2",
+        "name": "GLM-5.2",
+        "provider": "Zhipu AI",
+        "category": "coding",
+        "tags": ["coding", "open-weight", "mit", "cheap", "swe-bench"],
+        "description": "MIT-licensed 754B MoE model. Beats GPT-5.5 on vendor-reported SWE-bench Pro at ~1/6 the cost. Cheapest frontier-quality coding model per BenchLM as of mid-2026.",
+        "context_window": 128000,
+        "pricing": {
+          "input_per_1m": 1.40,
+          "output_per_1m": 4.40,
+          "currency": "USD",
+          "notes": "Per BenchLM July 2026 pricing"
+        },
+        "benchmarks": {
+          "swe_bench_pro": "62.1%",
+          "notes": "Vendor-reported; beats GPT-5.5 (58.6%) on this benchmark"
+        },
+        "strengths": ["MIT license", "frontier coding quality at 1/6 GPT-5.5 cost", "agentic tuning", "large MoE"],
+        "weaknesses": ["128K context (shorter than competitors)", "less independently benchmarked outside vendor reports", "Chinese-origin"],
+        "availability": {
+          "api": true,
+          "api_model_string": "glm-5.2",
+          "self_host": true,
+          "chat_ui": true
+        },
+        "best_for": ["cost-efficient coding pipelines", "agentic coding on a budget", "open-source tools requiring permissive license"],
+        "not_ideal_for": ["very long context tasks", "teams needing non-Chinese origin models"],
+        "license": "MIT"
+      },
+      {
+        "id": "qwen-3-7-max",
+        "name": "Qwen3.7-Max",
+        "provider": "Alibaba (Qwen)",
+        "category": "coding",
+        "tags": ["coding", "reasoning", "benchmarks", "long-context"],
+        "description": "API-only model from Qwen with #1 ranking on multiple coding and agent benchmarks. 1M context with 90% cache discount. Dominant on pure coding benchmark suites.",
+        "context_window": 1000000,
+        "pricing": {
+          "input_per_1m": 2.00,
+          "output_per_1m": 7.50,
+          "currency": "USD",
+          "notes": "90% cache discount available; API-only, no self-hosting"
+        },
+        "benchmarks": {
+          "notes": "#1 on 6 coding/agent benchmarks as of mid-2026; specific scores not independently verified"
+        },
+        "strengths": ["benchmark leader on coding suites", "1M context", "90% cache discount for repeated prompts", "strong agent performance"],
+        "weaknesses": ["API-only (no self-host)", "closed weights", "Chinese-origin"],
+        "availability": {
+          "api": true,
+          "api_model_string": "qwen3.7-max",
+          "self_host": false,
+          "chat_ui": false
+        },
+        "best_for": ["coding benchmark-driven selection", "high-volume cached coding prompts", "agent development"],
+        "not_ideal_for": ["on-premise deployments", "teams needing open weights"],
+        "license": "Proprietary (closed weights)"
+      },
+      {
+        "id": "kimi-k2-7-code",
+        "name": "Kimi K2.7-Code",
+        "provider": "Moonshot AI",
+        "category": "coding",
+        "tags": ["coding", "agentic", "open-weight", "mid-cost"],
+        "description": "Agent-tuned coding model with 256K context. Modified MIT license. Built for coding agent workflows with strong agentic stability. Competitive with frontier at mid-tier cost.",
+        "context_window": 256000,
+        "pricing": {
+          "input_per_1m": 1.00,
+          "output_per_1m": 4.00,
+          "currency": "USD",
+          "notes": "Approximate; check Moonshot AI API"
+        },
+        "benchmarks": {
+          "notes": "No widely published independent benchmarks yet as of mid-2026; strong on internal agentic evals"
+        },
+        "strengths": ["agent-tuned specifically for coding workflows", "Modified MIT license", "256K context", "agentic stability"],
+        "weaknesses": ["limited independent benchmark data", "Modified MIT (check license terms before commercial use)"],
+        "availability": {
+          "api": true,
+          "api_model_string": "kimi-k2.7-code",
+          "self_host": true,
+          "chat_ui": false
+        },
+        "best_for": ["coding agents and copilots", "automated software development pipelines", "mid-budget coding workloads"],
+        "not_ideal_for": ["tasks where independent benchmarks are critical for model selection", "simple autocomplete"],
+        "license": "Modified MIT"
+      }
+    ],
+    "open_weight": [
+      {
+        "id": "kimi-k3",
+        "name": "Kimi K3",
+        "provider": "Moonshot AI",
+        "category": "open_weight",
+        "tags": ["open-weight", "large-scale", "frontier-quality", "long-context"],
+        "description": "Largest open-weight model ever released at 2.8 trillion parameters. Modified MIT license. 1M context. Leads the open-weight intelligence index as of July 2026.",
+        "context_window": 1000000,
+        "pricing": {
+          "input_per_1m": 5.00,
+          "output_per_1m": 15.00,
+          "currency": "USD",
+          "notes": "Via hosted API; self-hosting requires massive infra for 2.8T model"
+        },
+        "benchmarks": {
+          "notes": "Leads AA Intelligence Index for open-weight as of July 2026"
+        },
+        "strengths": ["largest open-weight model", "frontier-class capability", "1M context", "Modified MIT"],
+        "weaknesses": ["extremely large — impractical to self-host without massive GPU clusters", "modified MIT (check terms)"],
+        "availability": {
+          "api": true,
+          "api_model_string": "kimi-k3",
+          "self_host": true,
+          "chat_ui": false,
+          "self_host_notes": "Requires very large GPU cluster; not practical for most teams"
+        },
+        "best_for": ["highest-capability open-weight tasks", "research requiring open weights", "frontier-quality without proprietary lock-in"],
+        "not_ideal_for": ["teams needing to actually self-host on limited hardware", "simple inference tasks"],
+        "license": "Modified MIT"
+      },
+      {
+        "id": "llama-4-maverick",
+        "name": "Llama 4 Maverick",
+        "provider": "Meta",
+        "category": "open_weight",
+        "tags": ["open-weight", "meta", "multimodal", "balanced", "widely-supported"],
+        "description": "Meta's flagship Llama 4 model. Multimodal, widely supported across every major inference provider. The most ecosystem-friendly open-weight choice with broad community tooling.",
+        "context_window": 1000000,
+        "pricing": {
+          "input_per_1m": 0.20,
+          "output_per_1m": 0.60,
+          "currency": "USD",
+          "notes": "Via third-party API providers; free to self-host under Llama license"
+        },
+        "benchmarks": {
+          "notes": "Strong across reasoning, coding, and multimodal; competitive with mid-tier closed models"
+        },
+        "strengths": ["broadest ecosystem support", "multimodal", "Meta brand trust", "huge community", "widely fine-tuned"],
+        "weaknesses": ["Llama license (not Apache/MIT — commercial use requires Meta approval at scale)", "not top of any single benchmark"],
+        "availability": {
+          "api": true,
+          "api_model_string": "meta-llama/llama-4-maverick",
+          "self_host": true,
+          "chat_ui": true
+        },
+        "best_for": ["teams needing ecosystem flexibility", "fine-tuning base", "community-supported deployments", "multimodal open-weight tasks"],
+        "not_ideal_for": ["tasks needing Apache/MIT licensing", "top-of-leaderboard performance"],
+        "license": "Llama Community License (commercial use terms apply)"
+      },
+      {
+        "id": "mistral-large-3-ow",
+        "name": "Mistral Large 3",
+        "provider": "Mistral AI",
+        "category": "open_weight",
+        "tags": ["open-weight", "apache", "european", "agentic", "permissive"],
+        "description": "The best non-Chinese open-weight model for Western/European compliance. Apache 2.0, 675B MoE (41B active), agentic-tuned. True permissive commercial license with no restrictions.",
+        "context_window": 256000,
+        "pricing": {
+          "input_per_1m": 0.50,
+          "output_per_1m": 1.50,
+          "currency": "USD",
+          "notes": "Via Mistral API; fully free to self-host under Apache 2.0"
+        },
+        "benchmarks": {
+          "notes": "Near parity with top instruction-tuned closed models on coding and reasoning benchmarks"
+        },
+        "strengths": ["Apache 2.0 (truly permissive)", "European origin (GDPR/EU AI Act friendly)", "agentic tuning", "no commercial restrictions"],
+        "weaknesses": ["256K context", "smaller active param count than Chinese MoE giants"],
+        "availability": {
+          "api": true,
+          "api_model_string": "mistral-large-3",
+          "self_host": true,
+          "chat_ui": true
+        },
+        "best_for": ["EU-regulated deployments", "commercial fine-tuning", "enterprise self-hosting without license risk", "non-Chinese open-weight need"],
+        "not_ideal_for": ["1M+ context tasks", "absolute benchmark maximization"],
+        "license": "Apache 2.0"
+      },
+      {
+        "id": "deepseek-v4-pro-ow",
+        "name": "DeepSeek V4-Pro",
+        "provider": "DeepSeek",
+        "category": "open_weight",
+        "tags": ["open-weight", "mit", "cheap", "moe", "coding"],
+        "description": "1.6T parameter MoE model, MIT licensed. Second on the AA Intelligence Index for open-weight. Extremely cheap at ~$1.10/M output via aggregators. Best cost-performance open-weight overall.",
+        "context_window": 1000000,
+        "pricing": {
+          "input_per_1m": 0.27,
+          "output_per_1m": 1.10,
+          "currency": "USD",
+          "notes": "Via aggregator APIs; MIT means free to self-host"
+        },
+        "benchmarks": {
+          "swe_bench_verified": "80.6%",
+          "notes": "Near-frontier on coding at a fraction of closed-source cost"
+        },
+        "strengths": ["MIT license", "near-frontier coding quality", "incredibly cheap API", "1M context", "1.6T MoE architecture"],
+        "weaknesses": ["Chinese-origin (data residency/compliance concerns for some orgs)", "self-hosting at 1.6T scale is hardware-intensive"],
+        "availability": {
+          "api": true,
+          "api_model_string": "deepseek-v4-pro",
+          "self_host": true,
+          "chat_ui": true
+        },
+        "best_for": ["best open-weight bang-for-buck", "coding and agent tasks", "MIT-licensed production systems"],
+        "not_ideal_for": ["teams with Chinese-origin data restrictions", "on-device or small-GPU self-hosting"],
+        "license": "MIT"
+      },
+      {
+        "id": "llama-4-scout",
+        "name": "Llama 4 Scout",
+        "provider": "Meta",
+        "category": "open_weight",
+        "tags": ["open-weight", "meta", "ultra-long-context", "unique"],
+        "description": "Meta's ultra-long-context open-weight model with a 10 million token context window. Unique capability for ingesting entire codebases, document libraries, or massive datasets in one shot.",
+        "context_window": 10000000,
+        "pricing": {
+          "input_per_1m": 0.10,
+          "output_per_1m": 0.40,
+          "currency": "USD",
+          "notes": "Via hosted API; self-host free under Llama license. Long-context inference is memory-heavy."
+        },
+        "benchmarks": {
+          "notes": "Specialized for long-context; general benchmarks less relevant than context-retrieval performance"
+        },
+        "strengths": ["10M token context (unmatched in open-weight)", "great for document libraries", "Meta ecosystem support"],
+        "weaknesses": ["10M context inference is very memory-intensive to self-host", "general capability may trail Maverick", "Llama license"],
+        "availability": {
+          "api": true,
+          "api_model_string": "meta-llama/llama-4-scout",
+          "self_host": true,
+          "chat_ui": false,
+          "self_host_notes": "Requires significant GPU memory for full 10M context"
+        },
+        "best_for": ["entire-codebase ingestion", "legal/research document libraries", "RAG over massive corpora", "needle-in-haystack over huge datasets"],
+        "not_ideal_for": ["short-context everyday tasks", "teams without high-memory GPU infra for self-hosting"],
+        "license": "Llama Community License"
+      }
+    ],
+    "multimodal": [
+      {
+        "id": "gemini-3-1-pro-mm",
+        "name": "Gemini 3.1 Pro",
+        "provider": "Google",
+        "category": "multimodal",
+        "tags": ["multimodal", "image", "audio", "video", "long-context", "frontier"],
+        "description": "Best-in-class multimodal frontier model. Native support for image, audio, and video with 1M context. Leading GPQA Diamond score among frontier models. Most capable and cost-efficient US-origin multimodal option.",
+        "context_window": 1000000,
+        "pricing": {
+          "input_per_1m": 3.50,
+          "output_per_1m": 12.00,
+          "currency": "USD",
+          "notes": "Output rate increases to $18/M above 200K context"
+        },
+        "modalities": {
+          "text": true,
+          "image_input": true,
+          "audio_input": true,
+          "video_input": true,
+          "image_output": false,
+          "audio_output": false
+        },
+        "benchmarks": {
+          "gpqa_diamond": "94.3%"
+        },
+        "strengths": ["native image + audio + video", "1M context", "top GPQA score", "cheapest US-frontier multimodal"],
+        "weaknesses": ["pricing jump above 200K context", "no image/audio output (input only)"],
+        "availability": {
+          "api": true,
+          "api_model_string": "gemini-3.1-pro",
+          "self_host": false,
+          "chat_ui": true
+        },
+        "best_for": ["video understanding", "audio transcription + reasoning", "image analysis at scale", "multimodal RAG"],
+        "not_ideal_for": ["generating images or audio (input-only multimodal)", "ultra-long context on tight budget"],
+        "license": "Proprietary"
+      },
+      {
+        "id": "gpt-5-5-mm",
+        "name": "GPT-5.5",
+        "provider": "OpenAI",
+        "category": "multimodal",
+        "tags": ["multimodal", "image", "audio", "video", "tool-calling", "frontier"],
+        "description": "OpenAI's flagship with deep multimodal integration across text, image, audio, and video. Strong tool-use and agentic capabilities alongside multimodal understanding. The most ecosystem-rich multimodal option.",
+        "context_window": 2000000,
+        "pricing": {
+          "input_per_1m": 10.00,
+          "output_per_1m": 30.00,
+          "currency": "USD"
+        },
+        "modalities": {
+          "text": true,
+          "image_input": true,
+          "audio_input": true,
+          "video_input": true,
+          "image_output": true,
+          "audio_output": true
+        },
+        "benchmarks": {
+          "terminal_bench_2": "82.7%",
+          "swe_bench_verified": "82.6%"
+        },
+        "strengths": ["image + audio output (not just input)", "2M context", "best ecosystem integration", "strong agentic + multimodal combo"],
+        "weaknesses": ["most expensive multimodal option", "overkill for simple image analysis"],
+        "availability": {
+          "api": true,
+          "api_model_string": "gpt-5.5",
+          "self_host": false,
+          "chat_ui": true
+        },
+        "best_for": ["voice + vision apps", "multimodal agents", "image generation within agentic workflows", "full-stack multimodal products"],
+        "not_ideal_for": ["budget-sensitive multimodal tasks", "pure text workloads"],
+        "license": "Proprietary"
+      },
+      {
+        "id": "llama-4-maverick-mm",
+        "name": "Llama 4 Maverick",
+        "provider": "Meta",
+        "category": "multimodal",
+        "tags": ["multimodal", "open-weight", "image", "cheap", "self-hostable"],
+        "description": "Best open-weight multimodal model. Native image understanding, widely supported across inference providers. The go-to choice for self-hosted multimodal applications without proprietary lock-in.",
+        "context_window": 1000000,
+        "pricing": {
+          "input_per_1m": 0.20,
+          "output_per_1m": 0.60,
+          "currency": "USD",
+          "notes": "Free to self-host; very cheap via third-party APIs"
+        },
+        "modalities": {
+          "text": true,
+          "image_input": true,
+          "audio_input": false,
+          "video_input": false,
+          "image_output": false,
+          "audio_output": false
+        },
+        "benchmarks": {
+          "notes": "Strong vision-language performance; competitive with mid-tier closed multimodal models"
+        },
+        "strengths": ["cheapest multimodal at scale", "self-hostable", "broad ecosystem support", "1M context"],
+        "weaknesses": ["image-only (no audio/video)", "Llama license restrictions at large commercial scale"],
+        "availability": {
+          "api": true,
+          "api_model_string": "meta-llama/llama-4-maverick",
+          "self_host": true,
+          "chat_ui": true
+        },
+        "best_for": ["self-hosted vision apps", "image classification pipelines", "open-weight VLM fine-tuning", "document OCR + reasoning"],
+        "not_ideal_for": ["audio/video understanding", "teams needing Apache/MIT license"],
+        "license": "Llama Community License"
+      },
+      {
+        "id": "claude-opus-5-mm",
+        "name": "Claude Opus 5",
+        "provider": "Anthropic",
+        "category": "multimodal",
+        "tags": ["multimodal", "image", "pdf", "document", "frontier", "long-context"],
+        "description": "Anthropic's balanced frontier model with strong image and document (PDF) understanding. Best for document-heavy multimodal workflows — contracts, reports, invoices — at frontier quality with 1M context.",
+        "context_window": 1000000,
+        "pricing": {
+          "input_per_1m": 5.00,
+          "output_per_1m": 25.00,
+          "currency": "USD"
+        },
+        "modalities": {
+          "text": true,
+          "image_input": true,
+          "audio_input": false,
+          "video_input": false,
+          "image_output": false,
+          "audio_output": false,
+          "document_pdf": true
+        },
+        "benchmarks": {
+          "swe_bench_verified": "88.6%"
+        },
+        "strengths": ["best for document/PDF+image reasoning", "frontier quality", "1M context", "strong instruction following"],
+        "weaknesses": ["no audio/video support", "more expensive than Gemini for pure vision tasks"],
+        "availability": {
+          "api": true,
+          "api_model_string": "claude-opus-5",
+          "self_host": false,
+          "chat_ui": true
+        },
+        "best_for": ["document intelligence (contracts, invoices, reports)", "image + text reasoning", "multimodal knowledge work"],
+        "not_ideal_for": ["audio/video tasks", "budget vision pipelines at high volume"],
+        "license": "Proprietary"
+      },
+      {
+        "id": "gemini-3-5-flash-mm",
+        "name": "Gemini 3.5 Flash",
+        "provider": "Google",
+        "category": "multimodal",
+        "tags": ["multimodal", "cheap", "fast", "image", "audio", "video", "long-context"],
+        "description": "Best cheap multimodal model. Full image + audio + video support at Flash-tier pricing. 1M context. Strong GPQA Diamond score. The default choice for high-volume multimodal workloads on a budget.",
+        "context_window": 1000000,
+        "pricing": {
+          "input_per_1m": 0.30,
+          "output_per_1m": 9.00,
+          "currency": "USD"
+        },
+        "modalities": {
+          "text": true,
+          "image_input": true,
+          "audio_input": true,
+          "video_input": true,
+          "image_output": false,
+          "audio_output": false
+        },
+        "benchmarks": {
+          "gpqa_diamond": "92.2%",
+          "swe_bench_verified": "78.8%"
+        },
+        "strengths": ["full image/audio/video at low cost", "92.2% GPQA Diamond", "1M context", "high throughput"],
+        "weaknesses": ["Flash-tier quality ceiling for hardest tasks", "no image/audio output"],
+        "availability": {
+          "api": true,
+          "api_model_string": "gemini-3.5-flash",
+          "self_host": false,
+          "chat_ui": true
+        },
+        "best_for": ["high-volume image analysis", "video summarization pipelines", "audio transcription + QA", "multimodal RAG on a budget"],
+        "not_ideal_for": ["tasks requiring Gemini Pro-level reasoning", "image/audio generation"],
+        "license": "Proprietary"
+      }
+    ]
+  }
+}
